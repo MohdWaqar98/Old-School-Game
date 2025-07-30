@@ -3,8 +3,7 @@ import styles from "./page.module.css";
 import Card from "@/components/Card";
 import TicTacToeImage from "/public/tic-tac-toe.svg";
 import SudokuImage from "/public/SudokuLogo.webp";
-
-
+import MemoryFlip from "/public/MemoryFlip.png";
 
 const SelectGame = () => {
     return (
@@ -17,8 +16,26 @@ const SelectGame = () => {
             </div>
 
             <div className={styles.cardContainer}>
-                <Card image={TicTacToeImage} name={"Tic Tac Toe"} link={"tic-tac-toe/single-player"} backgroundColor={"#FF3737"} textColor={"white"}/>
-                <Card image={SudokuImage} name={"sudoku"} link={"sudoku"} backgroundColor={"#22C55E"} />
+                <Card 
+                    image={TicTacToeImage} 
+                    name={"Tic Tac Toe"} 
+                    link={"tic-tac-toe/single-player"} 
+                    backgroundColor={"#FF3737"} 
+                    textColor={"white"}
+                />
+                <Card 
+                    image={SudokuImage} 
+                    name={"Sudoku"} 
+                    link={"sudoku"} 
+                    backgroundColor={"#22C55E"} 
+                />
+                <Card 
+                    image={MemoryFlip} 
+                    name={"Memory Flip"} 
+                    link={"memory-flip-card"} 
+                    backgroundColor={"#8B5CF6"} 
+                    textColor={"white"}
+                />
             </div>
         </>
     );

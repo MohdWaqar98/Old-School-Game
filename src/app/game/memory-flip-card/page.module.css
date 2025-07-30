@@ -1,0 +1,306 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  background: white;
+  min-height: 100vh;
+  color: #333;
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #2d3748;
+  text-shadow: none;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 0;
+}
+
+.gameStats {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  background: #f8f9fa;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 2px solid #e2e8f0;
+  color: #2d3748;
+}
+
+.statLabel {
+  display: block;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.statValue {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.bestScore {
+  background: #fef3c7;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 2px solid #f59e0b;
+  color: #92400e;
+}
+
+.gameBoard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin: 30px auto;
+  max-width: 500px;
+  perspective: 1000px;
+}
+
+.card {
+  aspect-ratio: 1;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card.matched:hover {
+  transform: none;
+  cursor: default;
+}
+
+.cardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card.flipped .cardInner {
+  transform: rotateY(180deg);
+}
+
+.cardFront,
+.cardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid #e2e8f0;
+}
+
+.cardFront {
+  background: #f8f9fa;
+}
+
+.cardBack {
+  background: #22c55e;
+  transform: rotateY(180deg);
+}
+
+.card.matched .cardBack {
+  background: #dcfce7;
+  border-color: #22c55e;
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
+}
+
+.cardSymbol {
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: none;
+}
+
+.cardFront .cardSymbol {
+  color: #9ca3af;
+}
+
+.cardBack .cardSymbol {
+  color: white;
+}
+
+.gameCompleted {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.5s ease;
+}
+
+.completionMessage {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  border: 2px solid #e2e8f0;
+  max-width: 400px;
+  width: 90%;
+  color: #2d3748;
+}
+
+.completionMessage h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #2d3748;
+  text-shadow: none;
+}
+
+.finalStats {
+  margin: 20px 0;
+}
+
+.finalStats p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+}
+
+.gameControls {
+  margin: 30px 0;
+}
+
+.resetButton {
+  background: #22c55e;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+}
+
+.resetButton:hover {
+  background: #16a34a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.resetButton:active {
+  transform: translateY(0);
+}
+
+.instructions {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  border-radius: 15px;
+  margin-top: 30px;
+  text-align: left;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.instructions h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.instructions ul {
+  list-style: none;
+  padding: 0;
+}
+
+.instructions li {
+  padding: 8px 0;
+  position: relative;
+  padding-left: 25px;
+}
+
+.instructions li::before {
+  content: '🎯';
+  position: absolute;
+  left: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .gameBoard {
+    max-width: 300px;
+    gap: 10px;
+  }
+  
+  .gameStats {
+    gap: 15px;
+  }
+  
+  .stat {
+    padding: 8px 15px;
+  }
+  
+  .cardSymbol {
+    font-size: 1.5rem;
+  }
+  
+  .completionMessage {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gameBoard {
+    max-width: 280px;
+    gap: 8px;
+  }
+  
+  .cardSymbol {
+    font-size: 1.2rem;
+  }
+  
+  .gameStats {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
